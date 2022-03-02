@@ -3,21 +3,26 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Login() {
+  //Värden för input 
   const initialValues = {
     username: "",
     password: "",
   };
 
+    //hooks för logga in värden, error, och för redirect till annan komponent
     const [loggValues, setLoggValues] = useState(initialValues);
     const [error, setError] = useState("");
     const history = useNavigate();
 
+    //Kontrollerade inputs
     function onChange(e) {
       setLoggValues({ ...loggValues, [e.target.name]: e.target.value });
   
       console.log(loggValues);
     }
 
+    //Postas till api via axios för att kolla att värdena matchar user
+    //Skickas till profil-sida vid lyckad inloggning
     function onSubmit(e) {
       e.preventDefault();
   
@@ -46,11 +51,6 @@ function Login() {
         });
     }
 
-    function checkPassword() {
-      if (loggValues.password.length < 5) {
-
-      }
-    }
 
   return (
     <> 

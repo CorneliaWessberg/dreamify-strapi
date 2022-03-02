@@ -2,10 +2,11 @@ import React from "react";
 import { Link , useNavigate} from "react-router-dom";
 
 function Header() {
+    //Hämtar token från localstorage för rendering i menyn
     const token = localStorage.getItem("jwt");
     const history = useNavigate();
 
-
+    //Loggar ut användaren genom att tömma localStorage, skickas sedan till startsidan
     function logOut() {
         localStorage.clear();
         history("/")

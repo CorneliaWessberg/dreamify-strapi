@@ -3,22 +3,26 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Register() {
+  //värden för formuläret
   const initialValues = {
     username: "",
     email: "",
     password: "",
   };
 
+  //hooks för registrering, success och error
   const [regValues, setRegValues] = useState(initialValues);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
+  //kontrollerade inputs
   function onChange(e) {
     setRegValues({ ...regValues, [e.target.name]: e.target.value });
 
     console.log(regValues);
   }
 
+  //Postas värden till API via axios
   function onSubmit(e) {
     e.preventDefault();
 
@@ -45,6 +49,7 @@ function Register() {
       });
   }
 
+  //conditional rendering beroende på om registrering lyckades
   return (
     <>
       {success ? (
